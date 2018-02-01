@@ -1,7 +1,5 @@
-function Game() {
-  this.board = [['-','-','-'],
-                ['-','-','-'],
-                ['-','-','-']]
+function Game(board = new Board()) {
+  this.board = board
 }
 
 Game.prototype.placeX = function(spot) {
@@ -13,6 +11,5 @@ Game.prototype.placeO = function(spot) {
 }
 
 Game.prototype.claimSpot = function(spot, marker) {
-  coords = spot.split('')
-  this.board[coords[0]][coords[1]] = marker
+  this.board.claimSpot(spot, marker)
 }

@@ -1,27 +1,19 @@
 describe("Game",function(){
-  var game
+  var game;
+  var board;
 
   beforeEach(function(){
-    game = new Game()
+    board = jasmine.createSpyObj('myBoard', ['showBoard', 'claimSpot'])
+    game = new Game(board)
   })
 
-  it("is initialised with an empty board", function(){
-    expect(game.board).toEqual([['-','-','-'],
-                                ['-','-','-'],
-                                ['-','-','-']])
-  })
-
-  it("spots on the board can be claimed with an 'X'", function(){
+  it("placeX calls claimSpot on board", function(){
     game.placeX('00')
-    expect(game.board).toEqual([['X','-','-'],
-                                ['-','-','-'],
-                                ['-','-','-']])
+    expect(board.claimSpot).toHaveBeenCalled()
   })
 
-  it("spots on the board can be claimed with an 'O'", function(){
+  it("placeO calls claimSpot on board", function(){
     game.placeO('00')
-    expect(game.board).toEqual([['O','-','-'],
-                                ['-','-','-'],
-                                ['-','-','-']])
+    expect(board.claimSpot).toHaveBeenCalled()
   })
 })
