@@ -7,8 +7,8 @@ describe("Board", function(){
 
   it("is initialised with an empty board", function(){
     expect(board.board).toEqual([['-','-','-'],
-                                ['-','-','-'],
-                                ['-','-','-']])
+                                 ['-','-','-'],
+                                 ['-','-','-']])
   })
 
   it("shows the board", function(){
