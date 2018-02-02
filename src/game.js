@@ -16,4 +16,9 @@ Game.prototype.claimSpot = function(spot, marker) {
   this.board.claimSpot(spot, marker)
 }
 
-// Game.prototype.
+Game.prototype.endGame = function() {
+  var result = this.result.getResult(this.board.showBoard())
+  if(result) {
+    console.log(result)
+  }
+}
