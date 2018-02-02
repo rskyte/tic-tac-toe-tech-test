@@ -6,6 +6,24 @@ describe("Result", function(){
     result = new Result()
   })
 
+  it("can transpose a board", function(){
+    board = [['X','X','O'],
+             ['O','O','X'],
+             ['X','O','X']]
+    expect(result.transposeBoard(board)).toEqual([['X','O','X'],
+                                                  ['X','O','O'],
+                                                  ['O','X','X']])
+  })
+
+  it("can flip a board about the x axis", function(){
+    board = [['X','X','O'],
+             ['O','O','X'],
+             ['X','O','X']]
+    expect(result.xAxisFlipBoard(board)).toEqual([['O','X','X'],
+                                                  ['X','O','O'],
+                                                  ['X','O','X']])
+  })
+
   it("knows when game ends in a draw (all squares filled no winner)", function(){
     board = [['X','X','O'],
              ['O','O','X'],
@@ -13,56 +31,56 @@ describe("Result", function(){
     expect(result.getResult(board)).toEqual("It's a draw!")
   })
 
-  it("determines the winner", function(){
+  it("determines the winner diagonally", function(){
     board = [['X','-','-'],
              ['-','X','-'],
              ['-','-','X']]
     expect(result.getResult(board)).toEqual("X wins!")
   })
 
-  it("determines the winner", function(){
+  it("determines the winner diagonally", function(){
     board = [['-','-','X'],
              ['-','X','-'],
              ['X','-','-']]
     expect(result.getResult(board)).toEqual("X wins!")
   })
 
-  it("determines the winner", function(){
+  it("determines the winner horizontally", function(){
     board = [['X','X','X'],
              ['-','-','-'],
              ['-','-','-']]
     expect(result.getResult(board)).toEqual("X wins!")
   })
 
-  it("determines the winner", function(){
+  it("determines the winner horizontally", function(){
     board = [['-','-','-'],
              ['X','X','X'],
              ['-','-','-']]
     expect(result.getResult(board)).toEqual("X wins!")
   })
 
-  it("determines the winner", function(){
+  it("determines the winner horizontally", function(){
     board = [['-','-','-'],
              ['-','-','-'],
              ['X','X','X']]
     expect(result.getResult(board)).toEqual("X wins!")
   })
 
-  it("determines the winner", function(){
+  it("determines the winner horizontally", function(){
     board = [['X','-','-'],
              ['X','-','-'],
              ['X','-','-']]
     expect(result.getResult(board)).toEqual("X wins!")
   })
 
-  it("determines the winner", function(){
+  it("determines the winner horizontally", function(){
     board = [['-','X','-'],
              ['-','X','-'],
              ['-','X','-']]
     expect(result.getResult(board)).toEqual("X wins!")
   })
 
-  it("determines the winner", function(){
+  it("determines the winner horizontally", function(){
     board = [['-','-','X'],
              ['-','-','X'],
              ['-','-','X']]
