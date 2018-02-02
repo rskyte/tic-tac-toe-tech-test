@@ -13,12 +13,8 @@ Game.prototype.placeO = function(spot) {
 }
 
 Game.prototype.claimSpot = function(spot, marker) {
-  console.log('in claim spot')
-  console.log(this.board)
-  console.log(this.board.claimSpot())
   if(this.board.claimSpot(spot, marker)) {
     this.turn.changeTurn()
-    console.log('ending game')
     this.endGame()
   }
 }
