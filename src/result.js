@@ -3,7 +3,8 @@ function Result(){
 }
 
 Result.prototype.getResult = function(board) {
-  return this.checkWin(board)
+  this.checkWin(board)
+  if(!this.gameEndMessage){ this.checkDraw(board) }
 }
 
 Result.prototype.transposeBoard = function(board) {
@@ -11,8 +12,14 @@ Result.prototype.transposeBoard = function(board) {
         .map(colNumber => board.map(rowNumber => rowNumber[colNumber]));
 }
 
-Result.prototype.flattenBoard = function() {
-
+Result.prototype.flattenBoard = function(board) {
+  var arr = []
+  for(var i=0;i<board.length;i++) {
+    arr.push(board[i][0])
+    arr.push(board[i][1])
+    arr.push(board[i][2])
+  }
+  return arr
 }
 
 Result.prototype.checkWin = function(board) {
@@ -39,4 +46,9 @@ Result.prototype.checkHorizontals = function(board) {
       this.gameEndMessage = board[i][1] + " wins!"
     }
   }
+}
+
+Result.prototype.checkDraw = function(board) {
+  var flatBoard = this.flattenBoard(board)
+  if(!flatBoard.includes('-')){ this.gameEndMessage = "It's a draw!"}
 }
