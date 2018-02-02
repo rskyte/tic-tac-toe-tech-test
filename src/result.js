@@ -24,6 +24,7 @@ Result.prototype.flattenBoard = function(board) {
 }
 
 Result.prototype.checkWin = function(board) {
+  console.log('in checkwin')
   this.checkDiagonals(board)
   this.checkHorizontals(board)
   this.checkHorizontals(this.transposeBoard(board))
@@ -40,11 +41,18 @@ Result.prototype.checkDiagonals = function(board) {
 }
 
 Result.prototype.checkHorizontals = function(board) {
-  for(var i=0;i<board.length;i++) {
-    if(board[i][0] == board[i][1] &&
-       board[i][1] == board[i][2] &&
-       board[i][1] != '-') {
-      this.gameEndMessage = board[i][1] + " wins!"
+  for(var i=0;i<(board.length);i++) {
+    for(var j=0;j<(board[i].length - 1);j++) {
+      console.log(board[i][j])
+      console.log(board[i][j+1])
+      if(board[i][j] == board[i][j+1] && board[i][j] != '-') {
+        if(j != board.length - 2) { continue; }
+      } else {
+        console.log('break')
+        break;
+      }
+      console.log('should not be here')
+      this.gameEndMessage = board[i][j] + " wins!"
     }
   }
 }

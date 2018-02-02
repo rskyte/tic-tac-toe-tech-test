@@ -18,42 +18,58 @@ describe("Result", function(){
              ['-','X','-'],
              ['-','-','X']]
     expect(result.getResult(board)).toEqual("X wins!")
+  })
 
+  it("determines the winner", function(){
     board = [['-','-','X'],
              ['-','X','-'],
              ['X','-','-']]
     expect(result.getResult(board)).toEqual("X wins!")
+  })
 
+  it("determines the winner", function(){
     board = [['X','X','X'],
              ['-','-','-'],
              ['-','-','-']]
     expect(result.getResult(board)).toEqual("X wins!")
+  })
 
+  it("determines the winner", function(){
     board = [['-','-','-'],
              ['X','X','X'],
              ['-','-','-']]
     expect(result.getResult(board)).toEqual("X wins!")
+  })
 
+  it("determines the winner", function(){
     board = [['-','-','-'],
              ['-','-','-'],
              ['X','X','X']]
     expect(result.getResult(board)).toEqual("X wins!")
+  })
 
+  it("determines the winner", function(){
     board = [['X','-','-'],
              ['X','-','-'],
              ['X','-','-']]
     expect(result.getResult(board)).toEqual("X wins!")
+  })
 
+  it("determines the winner", function(){
     board = [['-','X','-'],
              ['-','X','-'],
              ['-','X','-']]
     expect(result.getResult(board)).toEqual("X wins!")
+  })
 
+  it("determines the winner", function(){
     board = [['-','-','X'],
              ['-','-','X'],
              ['-','-','X']]
     expect(result.getResult(board)).toEqual("X wins!")
+  })
 
+  it("calculates win for O also", function(){
     board = [['-','-','O'],
              ['-','-','O'],
              ['-','-','O']]
@@ -63,7 +79,7 @@ describe("Result", function(){
   it("returns null when game isn't over", function(){
     board = [['-','-','-'],
              ['-','-','-'],
-             ['-','-','-']]       
+             ['-','-','-']]
     expect(result.getResult(board)).toBe(null)
   })
 })

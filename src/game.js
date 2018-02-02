@@ -2,7 +2,6 @@ function Game(board = new Board(), turnHandler = new TurnHandler(), result = new
   this.board = board
   this.turn = turnHandler
   this.result = result
-  this.setup()
 }
 
 Game.prototype.setup = function() {

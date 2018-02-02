@@ -13,8 +13,8 @@ describe("Board", function(){
 
   it("shows the board", function(){
     expect(board.showBoard()).toEqual([['-','-','-'],
-                                      ['-','-','-'],
-                                      ['-','-','-']])
+                                       ['-','-','-'],
+                                       ['-','-','-']])
   })
 
   it("spots on the board can be claimed with an 'X'", function(){
