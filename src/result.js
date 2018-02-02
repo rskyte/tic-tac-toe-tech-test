@@ -32,17 +32,19 @@ Result.prototype.flattenBoard = function(board) {
 
 Result.prototype.checkWin = function(board) {
   this.checkDiagonals(board)
+  this.checkDiagonals(this.xAxisFlipBoard(board))
   this.checkHorizontals(board)
   this.checkHorizontals(this.transposeBoard(board))
 }
 
 Result.prototype.checkDiagonals = function(board) {
   for(var i=0;i<(board.length - 1);i++) {
-    if(board[i][i] == board[i+1][i+1]) {
+    if(board[i][i] == board[i+1][i+1] && board[i][i] != '-') {
       if(i != board.length - 2) { continue; }
     } else {
       break;
     }
+    console.log('should not be here' + i)
     this.gameEndMessage = board[i][i] + " wins!"
   }
 }
