@@ -30,4 +30,19 @@ describe("Board", function(){
                                  ['-','-','-'],
                                  ['-','-','-']])
   })
+
+  it("claimed spots cannot be claimed again", function(){
+    board.claimSpot('00', 'O')
+    board.claimSpot('00', 'O')
+    expect(board.board).toEqual([['O','-','-'],
+                                 ['-','-','-'],
+                                 ['-','-','-']])
+  })
+
+  it("attempting to claim a claimed spot creates an error message", function(){
+    console.log = jasmine.createSpy("log");
+    board.claimSpot('00', 'O')
+    board.claimSpot('00', 'O')
+    expect(console.log).toHaveBeenCalledWith("Spot already taken!");
+  })
 })

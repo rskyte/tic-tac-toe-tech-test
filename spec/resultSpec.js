@@ -3,9 +3,6 @@ describe("Result", function(){
   var board;
 
   beforeEach(function(){
-    board = [['X','X','O'],
-             ['O','O','X'],
-             ['X','O','X']]
     result = new Result()
   })
 

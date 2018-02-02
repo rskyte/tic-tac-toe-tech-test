@@ -1,6 +1,7 @@
-function Game(board = new Board(), turnHandler = new TurnHandler()) {
+function Game(board = new Board(), turnHandler = new TurnHandler(), result = new Result()) {
   this.board = board
   this.turn = turnHandler
+  this.result = result
 }
 
 Game.prototype.placeX = function(spot) {
@@ -14,3 +15,5 @@ Game.prototype.placeO = function(spot) {
 Game.prototype.claimSpot = function(spot, marker) {
   this.board.claimSpot(spot, marker)
 }
+
+// Game.prototype.
