@@ -15,4 +15,12 @@ describe("TurnHandler", function(){
     expect(turnHandler.xTurn).toBe(false)
     expect(turnHandler.oTurn).toBe(true)
   })
+
+  it("returns xTurn", function(){
+    expect(turnHandler.isXTurn()).toBe(true)
+  })
+
+  it("returns oTurn", function(){
+    expect(turnHandler.isOTurn()).toBe(false)
+  })
 })

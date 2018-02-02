@@ -8,3 +8,11 @@ TurnHandler.prototype.changeTurn = function() {
   this.xTurn = this.oTurn
   this.oTurn = temp
 }
+
+TurnHandler.prototype.isXTurn = function() {
+  return this.xTurn
+}
+
+TurnHandler.prototype.isOTurn = function() {
+  return this.oTurn
+}
