@@ -2,6 +2,11 @@ function Game(board = new Board(), turnHandler = new TurnHandler(), result = new
   this.board = board
   this.turn = turnHandler
   this.result = result
+  this.setup()
+}
+
+Game.prototype.setup = function() {
+  console.log("Welcome to Tic-Tac-Toe\nTo play place X and O markers on the board when it's your turn and try to get 3-in-a-row!\nBoard:\n  OO|01|02\n  10|11|12\n  20|21|22\nTo place marker type in the console:\n  game.placeX('coordinate')\nor\n  game.placeO('coordinate')\n\ne.g game.placeX('00')\n\nEnjoy!")
 }
 
 Game.prototype.placeX = function(spot) {
