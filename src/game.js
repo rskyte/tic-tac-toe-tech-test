@@ -13,7 +13,7 @@ Game.prototype.placeO = function(spot) {
 }
 
 Game.prototype.claimSpot = function(spot, marker) {
-  this.board.claimSpot(spot, marker)
+  if(this.board.claimSpot(spot, marker)) { this.turn.changeTurn() }
 }
 
 Game.prototype.endGame = function() {

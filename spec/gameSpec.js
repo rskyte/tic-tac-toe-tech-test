@@ -7,6 +7,7 @@ describe("Game",function(){
   beforeEach(function(){
     board = jasmine.createSpyObj('myBoard', ['showBoard', 'claimSpot'])
     turnHandlerX = {isXTurn: true, isOTurn: false}
+    turnHandlerX.changeTurn = jasmine.createSpy('changeTurn')
     turnHandlerO = {isXTurn: false, isOTurn: true}
     winResult = {getResult: function() { return "endGame" }}
     noResult = {getResult: function() { return null }}
@@ -40,5 +41,19 @@ describe("Game",function(){
     console.log = jasmine.createSpy('log')
     game.endGame()
     expect(console.log).toHaveBeenCalledTimes(0)
+  })
+
+  it("changes turn after successfully claiming a spot", function(){
+    successBoard = {claimSpot: function(a, b){ return true }}
+    game = new Game(successBoard, turnHandlerX, noResult)
+    game.placeX('00')
+    expect(turnHandlerX.changeTurn).toHaveBeenCalled()
+  })
+
+  it("doesn't change turn after unsuccessfully claiming a spot", function(){
+    failBoard = {claimSpot: function(a, b){ return false }}
+    game = new Game(failBoard, turnHandlerX, noResult)
+    game.placeX('00')
+    expect(turnHandlerX.changeTurn).toHaveBeenCalledTimes(0)
   })
 })
