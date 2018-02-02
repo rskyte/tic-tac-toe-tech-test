@@ -5,7 +5,7 @@ describe("Game",function(){
   var turnHandlerO;
 
   beforeEach(function(){
-    board = jasmine.createSpyObj('myBoard', ['showBoard', 'claimSpot'])
+    board = {claimSpot: function(a, b){ return true }, showBoard: function(){}}
     turnHandlerX = {isXTurn: true, isOTurn: false}
     turnHandlerX.changeTurn = jasmine.createSpy('changeTurn')
     turnHandlerO = {isXTurn: false, isOTurn: true}
@@ -15,17 +15,20 @@ describe("Game",function(){
   })
 
   it("placeX calls claimSpot on board", function(){
+    spyOn(board, 'claimSpot')
     game.placeX('00')
     expect(board.claimSpot).toHaveBeenCalled()
   })
 
   it("placeO calls claimSpot on board", function(){
     game = new Game(board, turnHandlerO, noResult)
+    spyOn(board, 'claimSpot')
     game.placeO('00')
     expect(board.claimSpot).toHaveBeenCalled()
   })
 
   it("doesn't claim a spot if not the correct player's turn", function(){
+    spyOn(board, 'claimSpot')
     game.placeO('00')
     expect(board.claimSpot).toHaveBeenCalledTimes(0)
   })
@@ -44,8 +47,6 @@ describe("Game",function(){
   })
 
   it("changes turn after successfully claiming a spot", function(){
-    successBoard = {claimSpot: function(a, b){ return true }}
-    game = new Game(successBoard, turnHandlerX, noResult)
     game.placeX('00')
     expect(turnHandlerX.changeTurn).toHaveBeenCalled()
   })
@@ -55,5 +56,11 @@ describe("Game",function(){
     game = new Game(failBoard, turnHandlerX, noResult)
     game.placeX('00')
     expect(turnHandlerX.changeTurn).toHaveBeenCalledTimes(0)
+  })
+
+  it("checks if game is over after a successful move", function(){
+    game.endGame = jasmine.createSpy('endGame')
+    game.claimSpot('00', 'X')
+    expect(game.endGame).toHaveBeenCalled()
   })
 })
