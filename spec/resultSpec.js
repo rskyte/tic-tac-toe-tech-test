@@ -10,63 +10,60 @@ describe("Result", function(){
     board = [['X','X','O'],
              ['O','O','X'],
              ['X','O','X']]
-    result.getResult(board)
-    expect(result.gameEndMessage).toEqual("It's a draw!")
+    expect(result.getResult(board)).toEqual("It's a draw!")
   })
 
   it("determines the winner", function(){
     board = [['X','-','-'],
              ['-','X','-'],
              ['-','-','X']]
-    result.getResult(board)
-    expect(result.gameEndMessage).toEqual("X wins!")
+    expect(result.getResult(board)).toEqual("X wins!")
 
     board = [['-','-','X'],
              ['-','X','-'],
              ['X','-','-']]
-    result.getResult(board)
-    expect(result.gameEndMessage).toEqual("X wins!")
+    expect(result.getResult(board)).toEqual("X wins!")
 
     board = [['X','X','X'],
              ['-','-','-'],
              ['-','-','-']]
-    result.getResult(board)
-    expect(result.gameEndMessage).toEqual("X wins!")
+    expect(result.getResult(board)).toEqual("X wins!")
 
     board = [['-','-','-'],
              ['X','X','X'],
              ['-','-','-']]
-    result.getResult(board)
-    expect(result.gameEndMessage).toEqual("X wins!")
+    expect(result.getResult(board)).toEqual("X wins!")
 
     board = [['-','-','-'],
              ['-','-','-'],
              ['X','X','X']]
-    result.getResult(board)
-    expect(result.gameEndMessage).toEqual("X wins!")
+    expect(result.getResult(board)).toEqual("X wins!")
 
     board = [['X','-','-'],
              ['X','-','-'],
              ['X','-','-']]
-    result.getResult(board)
-    expect(result.gameEndMessage).toEqual("X wins!")
+    expect(result.getResult(board)).toEqual("X wins!")
 
     board = [['-','X','-'],
              ['-','X','-'],
              ['-','X','-']]
-    result.getResult(board)
-    expect(result.gameEndMessage).toEqual("X wins!")
+    expect(result.getResult(board)).toEqual("X wins!")
 
     board = [['-','-','X'],
              ['-','-','X'],
              ['-','-','X']]
-    result.getResult(board)
-    expect(result.gameEndMessage).toEqual("X wins!")
+    expect(result.getResult(board)).toEqual("X wins!")
 
     board = [['-','-','O'],
              ['-','-','O'],
              ['-','-','O']]
-    result.getResult(board)
-    expect(result.gameEndMessage).toEqual("O wins!")
+    expect(result.getResult(board)).toEqual("O wins!")
+  })
+
+  it("returns null when game isn't over", function(){
+    board = [['-','-','-'],
+             ['-','-','-'],
+             ['-','-','-']]       
+    expect(result.getResult(board)).toBe(null)
   })
 })

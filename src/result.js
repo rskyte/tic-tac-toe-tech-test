@@ -5,6 +5,7 @@ function Result(){
 Result.prototype.getResult = function(board) {
   this.checkWin(board)
   if(!this.gameEndMessage){ this.checkDraw(board) }
+  return this.gameEndMessage
 }
 
 Result.prototype.transposeBoard = function(board) {
