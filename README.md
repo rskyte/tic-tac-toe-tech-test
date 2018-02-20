@@ -13,6 +13,10 @@ Rules:
 - A game is over if a player wins
 - A game is over when all spots are taken
 
+#### Challenges Overcome
+- Writing an elegant solution for checking each possible winning condition, then making this scalable for a game board of any size
+- Getting to grips with mocking in Jasmine
+
 #### Setup - Getting the Repo
 
 ```
