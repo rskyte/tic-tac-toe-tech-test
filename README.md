@@ -1,7 +1,8 @@
-## Tic Tac Toe Tech Test!
+## Tic-Tac-Toe Tech Test
 
 Business logic and simple console interface for a game of tic-tac-toe written in Javascript and tested with Jasmine.
----------------------------------------------------------------------------------------------------
+---
+
 #### The brief
 Rules:
 
